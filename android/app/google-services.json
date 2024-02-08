@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "825044964852",
+    "project_id": "dictionarycoodesh",
+    "storage_bucket": "dictionarycoodesh.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:825044964852:android:e4ee0d413541532ff8d5a1",
+        "android_client_info": {
+          "package_name": "com.dictionarycoodesh"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzl8s16Sv8t7FxIFOT12AUjYAtsSzrgYk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

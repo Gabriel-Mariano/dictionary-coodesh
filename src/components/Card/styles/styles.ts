@@ -2,16 +2,15 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
+       width: 126,
+        height:100,
+        borderWidth:0.3,
         justifyContent:'center',
         alignItems:'center'
     },
-    wrapperContent:{
-        flexDirection:'row',
-        flexWrap: 'wrap',
-        justifyContent:'center',
-    },
-
+    text:{
+        fontWeight:'bold'
+    }
 })
 
-export { styles };
+export { styles }

@@ -1,10 +1,18 @@
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { MyStackProps } from '@src/routes/Stack';
 import { useEffect, useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, ScrollView } from 'react-native';
+import { Card } from '../../components/Card';
 import { db } from '../../config/firebase';
 import { styles } from './styles/styles';
 
 const HomeScreen = () => {
-    const [test,setTest] = useState<any[]>([])
+    const [words,setWords] = useState<any[]>([]);
+    
+    const { navigate } = useNavigation<NativeStackNavigationProp<MyStackProps>>();
+
+
     async function getWords() {
             const wordsCollection = db().collection('Dictionary');
             const snapshot = await wordsCollection.get();
@@ -20,19 +28,25 @@ const HomeScreen = () => {
         const fetch = async () => {
             const res = await getWords();
         
-            setTest(res[0].word); 
+            setWords(res[0].word); 
         }
 
         fetch();
-    },[])
+    },[]);
+
+    const handleTouch = (value:string) => {
+        navigate("Details",{
+            title:value
+        })
+    }
+
     return (
         <View style={styles.container}>
-            <Text>Hello Coodesh</Text>
-            {test?.map((item:any, index)=> {
-                return (
-                    <Text key={index}>{item}</Text>
-                )
-            })}
+            <ScrollView>
+                <View style={styles.wrapperContent}>
+                    {words?.map((value:string, index)=> <Card title={value} handleTouch={handleTouch} key={index}/> )}
+                </View>
+            </ScrollView>
         </View>
     )
 }

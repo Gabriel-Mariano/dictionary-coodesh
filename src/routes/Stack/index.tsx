@@ -6,12 +6,14 @@ const Stack = createNativeStackNavigator();
 
 export type MyStackProps = {
     MyTabs:undefined,
-    Details:undefined,
+    Details:{
+      title:string
+    },
 }
 
 function MyStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator >
       <Stack.Screen name="MyTabs" component={MyTabs} />
       <Stack.Screen name="Details" component={DetailsScreen} />
     </Stack.Navigator>
